@@ -1,0 +1,8 @@
+{
+  "name": "pizza-delivery-poc",
+  "version": "1.0.0",
+  "description": " This project demonstrates an API of delivery service (proof of concept)",
+  "main": "index.js",
+  "author": "Oleg Dovger",
+  "license": "MIT"
+}
