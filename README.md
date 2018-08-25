@@ -14,4 +14,68 @@ Here's the spec:
       Note: Use the stripe sandbox for your testing.
             Follow this link and click on the "tokens" tab to see the fake tokens you can use server-side to confirm the integration is working: https://stripe.com/docs/testing#cards
 
-- [ ] When an order is placed, you should email the user a receipt. You should integrate with the sandbox of Mailgun.com for this. Note: Every Mailgun account comes with a sandbox email account domain (whatever@sandbox123.mailgun.org) that you can send from by default. So, there's no need to setup any DNS for your domain for this task https://documentation.mailgun.com/en/latest/faqs.html#how-do-i-pick-a-domain-name-for-my-mailgun-account
+- [x] When an order is placed, you should email the user a receipt. You should integrate with the sandbox of Mailgun.com for this. Note: Every Mailgun account comes with a sandbox email account domain (whatever@sandbox123.mailgun.org) that you can send from by default. So, there's no need to setup any DNS for your domain for this task https://documentation.mailgun.com/en/latest/faqs.html#how-do-i-pick-a-domain-name-for-my-mailgun-account
+
+REST API:
+
+`/users`
+
+- `GET`
+- `POST`
+- `PUT`
+- `DELETE` - delete token and shopping cart also
+
+`/users/login`
+
+- `POST` - create token
+
+`/users/logout`
+
+- `POST` - delete token
+
+`/pizzas`
+
+- `GET` - show all items. Retrieve sku data from Stripe account and write it into files
+
+Example of pizza object with `attributes` param:
+
+```
+{
+  "id": "sku_DRhEr9C8z2I3HO",
+  "object": "sku",
+  "active": true,
+  "attributes": {
+    "size": "big",
+    "type": "margarita"
+  },
+  "created": 1534673300,
+  "currency": "usd",
+  "image": "http://like-pizza.by/wp-content/uploads/2015/12/Pepperoni-Pizza-PNG-Image.png",
+  "inventory": {
+    "quantity": null,
+    "type": "bucket",
+    "value": "in_stock"
+  },
+  "livemode": false,
+  "metadata": {},
+  "package_dimensions": null,
+  "price": 1800,
+  "product": "prod_DRh99atitAZFEw",
+  "updated": 1534799228
+}
+```
+
+`/shopping-cart`
+
+- `POST` - create a shopping cart with sku params from Stripe
+
+`/order`
+
+- `POST` - create an order and send email to user about his/her purchase nad delete shopping cart
+
+
+To run example:
+
+`nvm use`
+
+`MAIL_API_KEY= STRIPE_API_KEY= node index.js`

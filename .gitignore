@@ -1,6 +1,5 @@
 .idea
 .env
-http-requests
 /.data/pizzas/*
 /.data/shopping-carts/*
 /.data/tokens/*
