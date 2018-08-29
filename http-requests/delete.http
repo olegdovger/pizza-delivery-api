@@ -6,14 +6,14 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 ### Delete user
-DELETE http://localhost:3000/users
+DELETE http://localhost:3000/api/users
 Accept: application/json
 email:
 token:
 ###
 
 ### Remove shopping cart
-DELETE http://localhost:3000/shopping-cart
+DELETE http://localhost:3000/api/shopping-cart
 Accept: application/json
 email:
 token:

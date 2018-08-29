@@ -6,7 +6,7 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 ### Create new user
-POST http://localhost:3000/users
+POST http://localhost:3000/api/users
 Accept: application/json
 
 {
@@ -19,7 +19,7 @@ Accept: application/json
 ###
 
 ### Create new user session
-POST http://localhost:3000/users/login
+POST http://localhost:3000/api/users/login
 Accept: application/json
 
 {
@@ -29,7 +29,7 @@ Accept: application/json
 ###
 
 ### Delete user session
-POST http://localhost:3000/users/logout
+POST http://localhost:3000/api/users/logout
 Accept: application/json
 email:
 token:
@@ -37,7 +37,7 @@ token:
 ###
 
 ### Create shopping cart
-POST http://localhost:3000/shopping-cart
+POST http://localhost:3000/api/shopping-cart
 Accept: application/json
 email:
 token:
@@ -53,7 +53,7 @@ token:
 ###
 
 ### Create order
-POST http://localhost:3000/order
+POST http://localhost:3000/api/order
 Accept: application/json
 email:
 token:

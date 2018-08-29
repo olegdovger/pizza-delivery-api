@@ -18,22 +18,22 @@ Here's the spec:
 
 REST API:
 
-`/users`
+`/api/users`
 
 - `GET`
 - `POST`
 - `PUT`
 - `DELETE` - delete token and shopping cart also
 
-`/users/login`
+`/api/users/login`
 
 - `POST` - create token
 
-`/users/logout`
+`/api/users/logout`
 
 - `POST` - delete token
 
-`/pizzas`
+`/api/pizzas`
 
 - `GET` - show all items. Retrieve sku data from Stripe account and write it into files
 
@@ -65,11 +65,11 @@ Example of pizza object with `attributes` param:
 }
 ```
 
-`/shopping-cart`
+`/api/shopping-cart`
 
 - `POST` - create a shopping cart with sku params from Stripe
 
-`/order`
+`/api/order`
 
 - `POST` - create an order and send email to user about his/her purchase nad delete shopping cart
 

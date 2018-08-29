@@ -6,14 +6,14 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 ### Get request with a header
-GET http://localhost:3000/users
+GET http://localhost:3000/api/users
 Accept: application/json
 email:
 token:
 ###
 
 ### Get request with a header
-GET http://localhost:3000/pizzas
+GET http://localhost:3000/api/pizzas
 Accept: application/json
 email:
 token:
