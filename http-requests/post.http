@@ -10,11 +10,11 @@ POST http://localhost:3000/api/users
 Accept: application/json
 
 {
-  "firstName": "",
-  "lastName": "",
-  "email": "",
-  "streetAddress": "",
-  "password": ""
+  "firstName": "asdf",
+  "lastName": "asdf",
+  "email": "asf@test.com",
+  "streetAddress": "asfd",
+  "password": "sadfasdf"
 }
 ###
 
