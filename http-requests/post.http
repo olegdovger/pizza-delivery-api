@@ -1,0 +1,61 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+### Create new user
+POST http://localhost:3000/api/users
+Accept: application/json
+
+{
+  "firstName": "asdf",
+  "lastName": "asdf",
+  "email": "asf@test.com",
+  "streetAddress": "asfd",
+  "password": "sadfasdf"
+}
+###
+
+### Create new user session
+POST http://localhost:3000/api/users/login
+Accept: application/json
+
+{
+  "email": "",
+  "password": ""
+}
+###
+
+### Delete user session
+POST http://localhost:3000/api/users/logout
+Accept: application/json
+email:
+token:
+
+###
+
+### Create shopping cart
+POST http://localhost:3000/api/shopping-cart
+Accept: application/json
+email:
+token:
+
+{
+  "items": [
+    {
+      "name": "margarita",
+      "size": "big"
+    }
+  ]
+}
+###
+
+### Create order
+POST http://localhost:3000/api/order
+Accept: application/json
+email:
+token:
+
+###

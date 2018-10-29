@@ -1,0 +1,22 @@
+:root {
+    --main-bg-color: darkorchid;
+}
+
+html, body {
+    margin: 0;
+    padding: 0
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+
+    background: var(--main-bg-color);
+}
+
+container-app {
+    width: 100vw;
+    height: 100vh;
+
+    box-sizing: border-box;
+}
