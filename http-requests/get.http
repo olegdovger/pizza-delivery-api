@@ -15,6 +15,6 @@ token:
 ### Get request with a header
 GET http://localhost:3000/api/pizzas
 Accept: application/json
-email:
-token:
+email: t@t.com
+token: p0ybvoqxaphv2czkt3aj
 ###
