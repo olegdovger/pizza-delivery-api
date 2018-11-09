@@ -1,12 +1,12 @@
 .idea
 .env
 
-!.data/pizzas/
-!.data/shopping-carts/
-!.data/tokens/
-!.data/users/
-
 .data/pizzas/*
 .data/shopping-carts/*
 .data/tokens/*
 .data/users/*
+
+!.data/pizzas/.json
+!.data/shopping-carts/.json
+!.data/tokens/.json
+!.data/users/.json
