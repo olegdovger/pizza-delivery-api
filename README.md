@@ -1,6 +1,12 @@
 # pizza-delivery-api
 
-The Assignment (Scenario):
+To run example:
+
+`nvm use`
+
+`MAIL_API_KEY= STRIPE_API_KEY= node index.js`
+
+## 1 ) The Assignment for building API (Scenario):
 
 Here's the spec:
 
@@ -73,9 +79,14 @@ Example of pizza object with `attributes` param:
 
 - `POST` - create an order and send email to user about his/her purchase nad delete shopping cart
 
+## 2) The Assignment for building Web App (Scenario):
 
-To run example:
+Please create a web app that allows customers to:
 
-`nvm use`
+- [x] Signup on the site
 
-`MAIL_API_KEY= STRIPE_API_KEY= node index.js`
+- [-] View all the items available to order
+
+- [ ] Fill up a shopping cart
+
+- [ ] Place an order (with fake credit card credentials), and receive an email receipt
