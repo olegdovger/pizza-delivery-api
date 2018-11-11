@@ -72,11 +72,9 @@ class ShoppingCartMini extends BaseComponent {
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-    // this.shadowRoot.querySelectorAll('button').forEach(btn => {
-    //   btn.addEventListener('click', ({target}) => {
-    //     this.addItem(target)
-    //   })
-    // })
+    this.shadowRoot.querySelector('button').addEventListener('click', () => {
+      window.location.hash = '#/cart'
+    })
 
     this.addEvent('shopping-cart', _ => {
       let items = JSON.parse(window.localStorage.getItem('selected-items')).items
