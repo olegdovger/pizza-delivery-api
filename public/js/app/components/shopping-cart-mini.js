@@ -6,6 +6,10 @@ class ShoppingCartMini extends BaseComponent {
   }
 
   render() {
+    let itemsData = window.localStorage.getItem('selected-items') || '{"items":[]}'
+    let items = JSON.parse(itemsData).items
+    let price = items.reduce((sum, item) => sum += item.price, 0)
+
     const template = document.createElement('template')
 
     template.innerHTML = `
@@ -64,8 +68,8 @@ class ShoppingCartMini extends BaseComponent {
         }
       </style>
       <div class="cart">
-        <div class="count">0 pizzas</div>
-        <div class="price">${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(0)}</div>
+        <div class="count">${items.length} pizzas</div>
+        <div class="price">${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price)}</div>
         <button>Go to cart</button>
       </div>`
 

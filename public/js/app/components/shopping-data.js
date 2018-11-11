@@ -32,18 +32,21 @@ class ShoppingData extends BaseComponent {
         :host {
           display: flex;
           justify-content: center;
-          
+         
           align-content: center;
           
           height: inherit;
         }
         .cards {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
+          flex-direction: row;
+          justify-content: space-around;
+          flex-wrap: wrap;
           
+          min-width: 800px;
+          max-width: 1000px;
           
-          width: 200px;
+          margin-top: 100px;
         }
         .item {
           display: flex;
@@ -51,8 +54,8 @@ class ShoppingData extends BaseComponent {
           justify-content: space-between;
           align-items: center;
           
-          width: 200px;
-          min-height: 200px;
+          width: 180px;
+          height: 200px;
 
           padding: 5px 15px;
           margin: 5px;
@@ -132,7 +135,7 @@ class ShoppingData extends BaseComponent {
     this.data = await rawResponse.json()
   }
 
-  addItem({ dataset: { itemId }}) {
+  async addItem({ dataset: { itemId }}) {
     console.log(itemId, this.data.items.find(({id}) => id === itemId));
 
     const item = this.data.items.find(({id}) => id === itemId)
@@ -143,7 +146,21 @@ class ShoppingData extends BaseComponent {
       price: item.price / 100
     })
 
-    window.localStorage.setItem('selected-items', JSON.stringify(this.selectedItems))
+    let itemsString = JSON.stringify(this.selectedItems)
+    window.localStorage.setItem('selected-items', itemsString)
+
+    const { email, tokenId } = JSON.parse(localStorage.getItem('auth-data'))
+
+    const rawResponse = await fetch(`${config.base_url}/api/shopping-cart`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        email,
+        token: tokenId
+      },
+      body: itemsString
+    });
 
     this.triggerEvent('shopping-cart')
   }

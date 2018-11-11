@@ -1,4 +1,5 @@
 import BaseComponent from './base-component.js'
+import config from '../../config.js'
 
 class ShoppingCart extends BaseComponent {
   connectedCallback () {
@@ -29,7 +30,7 @@ class ShoppingCart extends BaseComponent {
       result +=`
         <div class="item">
           <div class="item_name">${item.name}</div>
-          <div class="item_price">${item.count} x ${item.itemPrice} = ${item.price}</div>
+          <div class="item_price">${item.count} x ${this.price(item.itemPrice)} = ${this.price(item.price)}</div>
         </div>
       `
 
@@ -63,7 +64,7 @@ class ShoppingCart extends BaseComponent {
           justify-content: center;
           
           color: white;
-          width: 250px;
+          width: 350px;
         }
         .item {
           display: flex;
@@ -73,6 +74,8 @@ class ShoppingCart extends BaseComponent {
           border-bottom: 1px dashed white;
           
           font-family: var(--font-family);
+
+          padding: 10px 0;
         }
         
         .item__total {
@@ -80,14 +83,113 @@ class ShoppingCart extends BaseComponent {
           
           font-family: var(--font-family);
         }
+
+        button {
+          width: 100px;
+          font-family: var(--font-family);
+          
+          background: none;
+          
+          color: white;
+          
+          border: 1px solid white;
+          
+          border-radius: 2px;
+          
+          outline: none;
+          
+          height: 25px;
+        }
+
+        button:hover {
+          cursor: pointer;
+        }
+        
+        .button__clear {
+          border: none;
+        }
+        
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          
+          margin-top: 15px;
+
+          color: white;
+          width: 350px;
+        }
+        .button {
+          justify-content: flex-start;
+        }
+        .button__end {
+          justify-content: flex-end;
+        }
+        .go-back {
+          align-content: center;
+          width: 100%;
+
+          border: none;
+        }
+        .go-back:hover {
+          text-decoration: underline;
+        }
       </style>
       <div class="items">
+        <button class="go-back">Go back to shop</button>
         ${itemsString}
-        <div class="item item__total">${totalPrice}</div>
+        <div class="item">
+          <div class="item_name">Total</div>
+          <div class="item_price">${this.price(totalPrice)}</div>
+        </div>
+        <div class="buttons">
+          <button class="button button__clear">Clear</button>
+          <button class="button button__buy">Buy</button>
+        </div>
       </div>`
 
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+    this.shadowRoot.querySelector('.button__clear').addEventListener('click', _ => {
+      this.deleteCart();
+    })
+    this.shadowRoot.querySelector('.go-back').addEventListener('click', _ => {
+      this.back();
+    })
+    this.shadowRoot.querySelector('.button__buy').addEventListener('click', _ => {
+      this.buy();
+    })
+  }
+
+  price(number) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number)
+  }
+
+  async deleteCart() {
+    const { email, tokenId } = JSON.parse(localStorage.getItem('auth-data'))
+
+    await fetch(`${config.base_url}/api/shopping-cart`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        email,
+        token: tokenId
+      }
+    })
+
+    localStorage.removeItem('selected-items')
+
+    window.location.hash = '#/main'
+  }
+
+  async buy() {
+    await 0
+  }
+
+  back() {
+    window.location.hash = '#/main'
   }
 }
 
