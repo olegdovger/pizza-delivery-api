@@ -185,7 +185,25 @@ class ShoppingCart extends BaseComponent {
   }
 
   async buy() {
-    await 0
+    const { email, tokenId } = JSON.parse(localStorage.getItem('auth-data'))
+
+    const rawResponse = await fetch(`${config.base_url}/api/order`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        email,
+        token: tokenId
+      }
+    })
+
+    const content = await rawResponse.json();
+
+    if (content.Error) {
+      //
+    } else {
+      window.location.hash = '#/receipt-was-sent';
+    }
   }
 
   back() {

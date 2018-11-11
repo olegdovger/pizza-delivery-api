@@ -1,3 +1,5 @@
+require('./lib/env').load();
+
 var server = require('./lib/server')
 
 // Declare the app

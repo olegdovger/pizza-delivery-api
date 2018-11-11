@@ -86,4 +86,4 @@ Please create a web app that allows customers to:
 - [x] Signup on the site
 - [x] View all the items available to order
 - [x] Fill up a shopping cart
-- [ ] Place an order (with fake credit card credentials), and receive an email receipt
+- [x] Place an order (with fake credit card credentials), and receive an email receipt

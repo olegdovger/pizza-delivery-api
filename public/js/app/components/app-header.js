@@ -118,6 +118,8 @@ class ContainerAppHeader extends BaseComponent {
       logoutSelector.addEventListener('click', async _ => {
         const { email, tokenId } = JSON.parse(window.localStorage.getItem('auth-data'))
 
+        await this.clearShoppingCart()
+
         const rawResponse = await fetch(`${config.base_url}/api/users/logout`, {
           method: 'POST',
           headers: {
@@ -145,6 +147,22 @@ class ContainerAppHeader extends BaseComponent {
         }
       })
     }
+  }
+
+  async clearShoppingCart() {
+    const { email, tokenId } = JSON.parse(localStorage.getItem('auth-data'))
+
+    await fetch(`${config.base_url}/api/shopping-cart`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        email,
+        token: tokenId
+      }
+    })
+
+    window.localStorage.removeItem('selected-items')
   }
 }
 

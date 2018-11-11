@@ -151,7 +151,7 @@ class ShoppingData extends BaseComponent {
 
     const { email, tokenId } = JSON.parse(localStorage.getItem('auth-data'))
 
-    const rawResponse = await fetch(`${config.base_url}/api/shopping-cart`, {
+    await fetch(`${config.base_url}/api/shopping-cart`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -160,7 +160,7 @@ class ShoppingData extends BaseComponent {
         token: tokenId
       },
       body: itemsString
-    });
+    })
 
     this.triggerEvent('shopping-cart')
   }
