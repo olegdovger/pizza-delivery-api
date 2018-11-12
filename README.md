@@ -6,6 +6,10 @@ To run example:
 
 `MAIL_API_KEY= STRIPE_API_KEY= node index.js`
 
+or
+
+create .env file and type params there
+
 ## 1 ) The Assignment for building API (Scenario):
 
 Here's the spec:
