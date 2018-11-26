@@ -1,6 +1,7 @@
 require('./lib/env').load();
 
 var server = require('./lib/server')
+var cli = require('./lib/cli')
 
 // Declare the app
 var app = {}
@@ -9,6 +10,10 @@ var app = {}
 app.init = function () {
   // Start the server
   server.init()
+
+  setTimeout(() => {
+    cli.init();
+  }, 50);
 }
 
 // Self executing
