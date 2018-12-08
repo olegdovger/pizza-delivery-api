@@ -10,11 +10,11 @@ POST http://localhost:3000/api/users
 Accept: application/json
 
 {
-  "firstName": "asdf",
-  "lastName": "asdf",
-  "email": "asf@test.com",
-  "streetAddress": "asfd",
-  "password": "sadfasdf"
+  "firstName": "Oleg",
+  "lastName": "Dovger",
+  "email": "oleg.a.dovger@gmail.com",
+  "streetAddress": "Izmailovsky prospekt 115a",
+  "password": "super_power"
 }
 ###
 
@@ -23,8 +23,8 @@ POST http://localhost:3000/api/users/login
 Accept: application/json
 
 {
-  "email": "",
-  "password": ""
+  "email": "oleg.a.dovger@gmail.com",
+  "password": "super_power"
 }
 ###
 
@@ -39,8 +39,8 @@ token:
 ### Create shopping cart
 POST http://localhost:3000/api/shopping-cart
 Accept: application/json
-email:
-token:
+email: oleg.a.dovger@gmail.com
+token: el1zg49gocivoa4v2j0a
 
 {
   "items": [

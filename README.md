@@ -91,3 +91,11 @@ Please create a web app that allows customers to:
 - [x] View all the items available to order
 - [x] Fill up a shopping cart
 - [x] Place an order (with fake credit card credentials), and receive an email receipt
+
+## 3) The Assignment for building CLI (Scenario):
+
+- [x] View all the current menu items
+- [x] View all the recent orders in the system (orders placed in the last 24 hours)
+- [x] Lookup the details of a specific order by order ID
+- [x] View all the users who have signed up in the last 24 hours
+- [x] Lookup the details of a specific user by email address

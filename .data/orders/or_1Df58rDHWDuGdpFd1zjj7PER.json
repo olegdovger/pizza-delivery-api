@@ -1,0 +1,101 @@
+{
+  "id": "or_1Df58rDHWDuGdpFd1zjj7PER",
+  "object": "order",
+  "amount": 4600,
+  "amount_returned": null,
+  "application": null,
+  "application_fee": null,
+  "charge": null,
+  "created": 1544272965,
+  "currency": "usd",
+  "customer": null,
+  "email": "oleg.a.dovger@gmail.com",
+  "items": [
+    {
+      "object": "order_item",
+      "amount": 1200,
+      "currency": "usd",
+      "description": "Pizza",
+      "parent": "sku_DRhBVeR6jiwZlZ",
+      "quantity": 1,
+      "type": "sku"
+    },
+    {
+      "object": "order_item",
+      "amount": 1600,
+      "currency": "usd",
+      "description": "Pizza",
+      "parent": "sku_DRhBqwDJrMe8qr",
+      "quantity": 1,
+      "type": "sku"
+    },
+    {
+      "object": "order_item",
+      "amount": 1800,
+      "currency": "usd",
+      "description": "Pizza",
+      "parent": "sku_DRhEr9C8z2I3HO",
+      "quantity": 1,
+      "type": "sku"
+    },
+    {
+      "object": "order_item",
+      "amount": 0,
+      "currency": "usd",
+      "description": "Taxes (included)",
+      "parent": null,
+      "quantity": null,
+      "type": "tax"
+    },
+    {
+      "object": "order_item",
+      "amount": 0,
+      "currency": "usd",
+      "description": "Free shipping",
+      "parent": "ship_free-shipping",
+      "quantity": null,
+      "type": "shipping"
+    }
+  ],
+  "livemode": false,
+  "metadata": {},
+  "returns": {
+    "object": "list",
+    "data": [],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/order_returns?order=or_1Df58rDHWDuGdpFd1zjj7PER"
+  },
+  "selected_shipping_method": "ship_free-shipping",
+  "shipping": {
+    "address": {
+      "city": null,
+      "country": null,
+      "line1": "Izmailovsky prospekt 115a",
+      "line2": null,
+      "postal_code": null,
+      "state": null
+    },
+    "carrier": null,
+    "name": "Oleg Dovger",
+    "phone": null,
+    "tracking_number": null
+  },
+  "shipping_methods": [
+    {
+      "id": "ship_free-shipping",
+      "amount": 0,
+      "currency": "usd",
+      "delivery_estimate": null,
+      "description": "Free shipping"
+    }
+  ],
+  "status": "created",
+  "status_transitions": {
+    "canceled": null,
+    "fulfiled": null,
+    "paid": null,
+    "returned": null
+  },
+  "updated": 1544272965
+}
