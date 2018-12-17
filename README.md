@@ -99,3 +99,9 @@ Please create a web app that allows customers to:
 - [x] Lookup the details of a specific order by order ID
 - [x] View all the users who have signed up in the last 24 hours
 - [x] Lookup the details of a specific user by email address
+
+## 4) Homework Assignment #6 (Performance)
+
+- [ ] Of all the modules we just explored, the Cluster module is likely the most important for performance.
+      In this homework assignment, please return to your "Hello World" API from the first homework assignment,
+      and refactor it to run across all the cores of your machine (using the cluster module).

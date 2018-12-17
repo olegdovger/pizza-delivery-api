@@ -1,19 +1,30 @@
-require('./lib/env').load();
+require('./lib/env').load()
 
-var server = require('./lib/server')
-var cli = require('./lib/cli')
+const server = require('./lib/server')
+const cli = require('./lib/cli')
+const cluster = require('cluster')
+const os = require('os')
 
 // Declare the app
 var app = {}
 
 // Init function
 app.init = function () {
-  // Start the server
-  server.init()
 
-  setTimeout(() => {
-    cli.init();
-  }, 50);
+  if (cluster.isMaster) {
+
+    setTimeout(() => {
+      cli.init()
+    }, 50)
+
+    for (let i = 0; i < os.cpus().length; i += 1) {
+      cluster.fork()
+    }
+
+  } else {
+    // Start the server
+    server.init()
+  }
 }
 
 // Self executing
